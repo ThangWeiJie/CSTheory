@@ -1,0 +1,203 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amssymb, amsfonts, amsmath, amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{fancyhdr}
+
+\setlength{\headheight}{14.49998pt}
+
+\makeatletter
+\renewenvironment{proof}[1][\proofname]{\par
+%  \pushQED{\qed}% <--- remove the QED business
+  \normalfont \topsep6\p@\@plus6\p@\relax
+  \trivlist
+  \item[\hskip\labelsep
+        \itshape
+    #1\@addpunct{.}]\ignorespaces
+}{%
+%  \popQED% <--- remove the QED business
+  \endtrivlist\@endpefalse
+}
+\renewcommand\qedhere{} % to ensure code portability
+\makeatother
+
+\pagestyle{fancy}
+\fancyhead[l]{SECJ3203}
+\fancyhead[c]{Tutorial 1 \& 2}
+\fancyhead[r]{April 2, 2025}
+
+\title{Tutorial 1 \& 2 SECJ3203}
+\date{}
+\author{}
+
+\renewcommand{\proofname}{Solution:}
+
+\begin{document}
+
+\begin{enumerate}
+    \item Consider the language $Y=(w+c)(oul+oo)d$. List all words for language $Y$.
+    \begin{proof}
+        $Y=\{\lambda, d, wd, cd, ould, ood, would, could, wood, cood \}$
+    \end{proof}
+    
+    \item Let $X=\{a, b\}$ and $Y=\{\lambda, ba, ab\}$
+    \begin{enumerate}
+        \item List the strings in the set $XY$.
+        \begin{proof}
+            $XY=\{a, aba, aab, b, bba, bab\}$
+        \end{proof}
+        
+        \item List the strings in the set $YX$.
+        \begin{proof}
+            $YX=\{a, b, baa, bab, aba, abb\}$
+        \end{proof}
+        
+        \item How many strings of length 4 are there in $Y^*$?
+        \begin{proof}
+            4
+        \end{proof}
+        
+        \item List the strings in the set $Y^*$ of length 3 or less. 
+        \begin{proof}
+            $\{\lambda, ba, ab\}$
+        \end{proof}
+        
+        \item List the strings in the set $X^*Y^*$ of length four or less.
+        \begin{proof}
+            $\{\lambda, a, b, aa, ab, ba, bb, aaa, aab, aba, abb, baa, bab, bba, bbb, aaaa, aaab, \\ aaba, aabb, abaa, abab, abba, abbb, baaa, baab, baba, babb, bbaa, bbab, bbba, bbbb\}$
+        \end{proof}
+    \end{enumerate}
+
+    \item Consider the language $S^*$, where $S=\{aa, b\}$
+    \begin{enumerate}
+        \item How many words does this language have of length 2?
+        \begin{proof}
+            2
+        \end{proof}
+
+        \item How many words does this language have of length 3? 
+        \begin{proof}
+            3
+        \end{proof}
+        
+    \end{enumerate}
+
+        \newpage
+    
+    \item For each of the following, write \textbf{two strings} IN the language, \textbf{two strings} that \textbf{NOT IN} the language and give a \textbf{short description} of the language using your own words.
+
+    \textit{Solution:}
+    
+    \begin{table}[h!]
+        \centering
+        \begin{tabular}{|>{\centering\arraybackslash}p{0.2\linewidth}|>{\centering\arraybackslash}p{0.2\linewidth}|>{\centering\arraybackslash}p{0.2\linewidth}|>{\centering\arraybackslash}p{0.3\linewidth}|} \hline 
+            Languages&  2 valid strings (IN)&  2 invalid strings (NOT IN)& Description\\ \hline 
+            $ab(a+b)^*$&  $ab, aba$&  $babb, aab$& All strings in this language starts with $ab$, followed by $a$'s and $b$'s in any order.\\ \hline 
+            $ab(a+b)^*ba$&  $abba, abaaba$&  $abaab, baba$& All strings in this language starts with $ab$ and ends with $ba$.\\ \hline 
+            $(a+b)b(a+b)^*$&  $aba, bbaa$&  $aaa, aaaa$& All strings in this language must contain at least one $b$.\\ \hline
+ $(a(a+b)^*b)+(b(a+b)^*a)$& $abb, baba$& $abaa, bbb$&All strings in this language either starts with $a$ and ends in $b$, or starts in $b$ and ends in $a$.\\\hline
+        \end{tabular}
+        \label{tab:q4}
+    \end{table}
+
+    \item Consider the regular expression $(a+b)^*a(a+b)$.
+    \begin{enumerate}
+        \item What string is NOT in this language?
+        \begin{proof}
+            Strings that do not have an $a$ in the second to last position is not in this language. 
+        \end{proof}
+
+        \item Write out all of the words in this language with 4 or fewer letters.
+        \begin{proof}
+            $aa, ab, aaa, aab, baa, bab, aaaa, aaab, abaa, abab, baaa, baab, bbaa, bbab \hfill$
+        \end{proof}
+    \end{enumerate}
+
+    \item Generate all possible strings for each of the following regular expression (at least for 3 values of Kleene star * i.e: 0, 1, 2):
+
+    \begin{enumerate}
+        \item $a(a+b)^*$
+        \begin{proof}
+            $\{a, aa, ab, aaa, aab, aba, abb, aaaa, aaab, aaba, aabb, abaa, abab, abba, \\ abbb, \dots\}$
+        \end{proof}
+
+        \item $a^*b^*$
+        \begin{proof}
+            $\{\lambda, a, b, aa, ab, bb, aaa, aab, abb, aaaa, aabb, abbb, aaab, \dots\}$
+        \end{proof}
+
+        \item $(ab)^*$
+        \begin{proof}
+            $\{\lambda, ab, abab, ababab, abababab, \dots\}$
+        \end{proof}
+    \end{enumerate}
+
+    \newpage
+
+    \item For the alphabet $\Sigma=\{a, b\}$, give a regular expression for the following languages: 
+    \begin{enumerate}
+        \item $L_1$ = All strings
+        \begin{proof}
+            $(a+b)^*$
+        \end{proof}
+        
+        \item $L_2$ = All strings except empty string
+        \begin{proof}
+            $a(a+b)^*+b(a+b)^*$
+        \end{proof}
+
+        \item $L_3$ = All strings starting with $ab$.
+        \begin{proof}
+            $ab(a+b)^*$
+        \end{proof}
+
+        \item $L_4$ = All strings ending with $ab$.
+        \begin{proof}
+            $(a+b)^*ab$
+        \end{proof}
+
+        \item $L_5$ = All strings that begin AND end with $ab$.
+        \begin{proof}
+            $ab(a+b)^*ab$
+        \end{proof}
+
+        \item $L_6$ = All strings that begin OR end with $ab$
+        \begin{proof}
+            $ab(a+b)^*+(a+b)^*ab$
+        \end{proof}
+
+        \item $L_7$ = All strings that contain the substring $ab$.
+        \begin{proof}
+            $(a+b)^*ab(a+b)^*$
+        \end{proof}
+
+        \item $L_8$ = All strings that contain the substring $ba$
+        \begin{proof}
+            $(a+b)^*ba(a+b)^*$
+        \end{proof}
+
+        \item $L_9$ = All strings that contain the substring $ab$ or $ba$
+        \begin{proof}
+            $(a+b)^*ab(a+b)^* +(a+b)^*ba(a+b)^*$
+        \end{proof}
+
+        \item $L_{10}$ = All strings that contain the substring $ab$ and $ba$
+        \begin{proof}
+            $(a+b)^*ab(a+b)^*ba(a+b)^*$
+        \end{proof}
+
+        \item $L_{11}$ = All strings containing exactly two $a$'s.
+        \begin{proof}
+            $(a+b)^*aa(a+b)^*$
+        \end{proof}
+
+        \item $L_{12}$ = All strings containing at least two $a$'s.
+        \begin{proof}
+            $(a+b)^*(aa)^*(a+b)^*$
+        \end{proof}
+    \end{enumerate}
+\end{enumerate}
+
+\end{document}
