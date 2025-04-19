@@ -1,0 +1,58 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{graphicx}
+\usepackage{amssymb, amsfonts, amsmath, amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+\usetikzlibrary{automata, positioning, arrows}
+
+\makeatletter
+\renewenvironment{proof}[1][\proofname]{\par
+%  \pushQED{\qed}% <--- remove the QED business
+  \normalfont \topsep6\p@\@plus6\p@\relax
+  \trivlist
+  \item[\hskip\labelsep
+        \itshape
+    #1\@addpunct{.}]\ignorespaces
+}{%
+%  \popQED% <--- remove the QED business
+  \endtrivlist\@endpefalse
+}
+\renewcommand\qedhere{} % to ensure code portability
+\makeatother
+
+\title{Tutorial 3 & 4}
+\date{}
+\author{}
+
+\renewcommand{\proofname}{Solution:}
+
+\begin{document}
+    \begin{enumerate}
+        \item
+        \begin{enumerate}
+            \item M1: \( \{q_0\}\) M2: \(\{q_0\}\)
+            \item M1: \(\{q_1\}\) M2: \( \{q_0, q_3\} \)
+            \item M1: \(q_0 \overset{a}{\to} q_1 \overset{a}{\to} q_2 \overset{b}{\to} q_0 \overset{b}{\to} q_0\) \\
+            M2: \(q_0 \overset{a}{\to} q_0 \overset{a}{\to} q_0 \overset{b}{\to} q_1 \overset{b}{\to} q_3\)
+            \item M1 does not accept the string \(aabb\) but M2 does.
+            \item M1 does not accept \(\varepsilon\) but M2 does.
+            \item M1 \(= (\{q_0, q_1, q_2\}, \{a, b\}, \delta, q_0, q_1)\) where \(\delta\) is described as: \\ 
+            \begin{center}
+                
+            \begin{tabular}{c|cc}
+                 & $a$ & $b$ \\ \hline
+            $q_0$ & $q_1$ & $q_0$ \\ 
+            $q_1$ & $q_2$ & $q_2$ \\ 
+            $q_2$ & $q_1$ & $q_0$
+            \end{tabular}
+
+            \end{center}
+            \vspace{5mm}
+
+            M2 \(= (\{q_0, q_1, q_2, q_3\})\)
+        \end{enumerate}
+    \end{enumerate}
+\end{document}
