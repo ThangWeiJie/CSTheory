@@ -9,6 +9,7 @@
 \usepackage{parskip}
 \usepackage{float}
 \usetikzlibrary{automata, positioning, arrows}
+\usetikzlibrary{graphs}
 
 \setlength{\headheight}{14.49998pt}
 
@@ -226,14 +227,80 @@
         \begin{enumerate}
             \item Give a leftmost derivation of string $abbaab$.
             \begin{proof}
-                $S \to SAB \to $
+                $S \to SAB \to SABAB \to ABAB \to aBAB \to abBAB \to abbBAB \to abbAB \to abbaAB \to abbaaB \to abbaabB \to abbaab$
             \end{proof}
 
             \item Build the derivation tree for the derivations in part (a).
+            \begin{proof}
+                \leavevmode \par
+
+                \begin{center}
+\begin{tikzpicture}[
+level distance=1.5cm,
+  level 1/.style={sibling distance=5cm},
+  level 2/.style={sibling distance=2.5cm},
+  level 3/.style={sibling distance=1.5cm},
+  every node/.style={circle, draw, minimum size=7mm, inner sep=2pt},
+  edge from parent/.style={draw, -latex}
+  ]
+
+\node {$S$}
+  child {node {$S$}
+    child {node {$S$}
+        child {node[draw = none] {$\lambda$}}
+    }
+    child {node {$A$}
+        child {node[draw = none] {$a$}}
+    }
+    child {node {$B$}
+        child {node[draw = none] {$b$}}
+        child {node {$B$}
+            child {node[draw = none] {$b$}}
+            child {node {$B$}
+                child {node[draw = none] {$\lambda$}}
+            }
+        }
+    }
+  }
+  child {node {$A$}
+    child {node[draw = none] {$a$}}
+    child {node {$A$}
+        child {node[draw = none] {$a$}}
+    }
+  }
+  child {node {$B$}
+    child {node[draw = none] {$b$}}
+    child {node {$B$}
+        child {node[draw = none] {$\lambda$}}
+    }
+  };
+
+\end{tikzpicture}
+\end{center}
+            \end{proof}
+            
             \item Generate TWO other possible strings of the language $L(G)$.
+            \begin{proof}
+            \hfill \\
+                1) $aabbab$ \\
+                (Derivation: $S \to SAB \to SABAB \to ABAB \to aABAB \to aaBAB \to aabBAB \to aabbBAB \to aabbAB \to aabbaB \to aabbabB \to aabbab$) \\
+                
+                2) $aaaabb$ \\
+                (Derivation: $S \to SAB \to AB \to aAB \to aaAB \to aaaAB \to aaaaB \to aaaabB \to aaaabbB \to aaaabb$)
+            \end{proof}
+            
             \item Give a regular expression for $L(G)$.
+            \begin{proof}
+                $L(G)=(aa^*b^*)^*$
+            \end{proof}
         \end{enumerate}
     \end{enumerate}
+
+
+\newpage
+
+
+
 
 
 \end{document}
