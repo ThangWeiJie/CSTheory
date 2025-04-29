@@ -294,6 +294,69 @@ level distance=1.5cm,
                 $L(G)=(aa^*b^*)^*$
             \end{proof}
         \end{enumerate}
+
+        \newpage
+        \item 
+        \leavevmode \par
+        \begin{minipage}{0.30\textwidth}
+            \centering
+            \begin{tabular}{|c|c|} \hline 
+                 No.&  Language\\ \hline 
+                 1& 
+                $(a+b)^*$\\ \hline
+                2&$(a+b)^+$\\\hline
+                3&$(a+b)$\\\hline
+                4&$(ab)$\\\hline
+                5&$a^*bb$\\\hline
+                6&$aa^*bb^*$\\\hline
+                7&$a^*bba^*$\\\hline
+                8&$a(a+b)^*b$\\\hline
+                9&$(a+b)^*bb(a+b)^*$\\\hline
+                10&$(a+b)^*aa(a+b)^*$\\\hline\end{tabular}
+        \end{minipage}
+        \hfill
+        \begin{minipage}{0.50\textwidth}
+            \centering
+            \begin{tabular}{|l|l|l|}
+                \hline
+                Matched No& Grammars&CFG or RG\\
+                \hline
+                6& \( \begin{aligned}[t]
+            S &\to SAB \mid \lambda \\ 
+            A &\to aA \mid a \\
+            B &\to bB \mid \lambda 
+        \end{aligned} \) &CFG\\ \hline 
+                5& \( \begin{aligned}[t]
+            S &\to Abb \\
+            A &\to aA \mid \lambda 
+        \end{aligned} \)&CFG\\ \hline
+ 2& $S \to aS \mid bS \mid a \mid b$&RG\\\hline
+ 10& \(\begin{aligned}[t]
+     S &\to AaaA \\
+     S &\to aA \mid bA \mid \lambda
+ \end{aligned}\) &CFG\\\hline
+ 4& \(\begin{aligned}[t]
+     S &\to aA \\
+     A &\to b
+ \end{aligned}\) &RG\\\hline
+ 9& \(\begin{aligned}[t]
+     S &\to aS \mid bS \mid bA \\
+     A &\to bB \\
+     B &\to aB \mid bB \mid \lambda
+ \end{aligned}\) &RG\\\hline
+ 8& \(\begin{aligned}
+     S &\to aA \\
+     A &\to aA \mid bA \mid b
+ \end{aligned}\) &RG\\\hline
+ 1& \(S \to aS \mid bS \mid \lambda\) &RG\\\hline
+ 7& \(\begin{aligned}[t]
+     S &\to aS \mid bA \\
+     A &\to bB \\
+     B &\to aB \mid \lambda
+ \end{aligned}\) &RG\\\hline
+ 3& \(S \to a \mid b\) &RG\\\hline 
+                \end{tabular}
+        \end{minipage}
     \end{enumerate}
 
 
